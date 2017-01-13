@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Airbnb</title>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+	<link rel="shortcut icon" type="image/x-icon" href="src/img/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="src/fonts/icomoon/style.css">
+	<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="dist/css/style.min.css">
+</head>
+<body>
+	<div class="container-fluid">
+		<!-- Comienzo Search Tam -->
+		<div class="row nav-buscador">
+			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+				<img class="logo" src="src/img/logo.png">
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<span class="icon-search2"></span>
+				<input type="text" class="form-control buscador" id="exampleInputAmount" placeholder="Buscar">
+			</div>
+			<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+				<div class="collapse navbar-collapse nav-search" id="navbar-collapse-3">
+					<ul class="nav navbar-nav navbar-right menunav">
+						<li><a href="#">Conviertéte en anfitrión</a></li>
+						<li><a href="#">Ayuda</a></li>
+						<li><a href="#">Regístrate</a></li>
+						<li><a href="#">Iniciar sesión</a></li>
+					</ul>
+					<div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse3">
+						<form class="navbar-form navbar-right" role="search">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Search"/>
+							</div>
+							<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+				<div class="row fecha">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						<p class="categorias">Fecha</p>
+					</div>
+					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 opciones">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<input type="text" class="form-control llegada-home" placeholder="Llegada">
+						</div>
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<input type="text" class="form-control salida-home" placeholder="Salida">
+						</div>
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<select class="form-control huesped-home">
+								<option>1 huésped</option>
+								<option>2 huéspedes</option>
+								<option>3 huéspedes</option>
+								<option>4 huéspedes</option>
+								<option>5 huéspedes</option>
+							</select>
+						</div>				
+					</div>
+				</div>
+				<div class="row fecha">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						<p class="categorias">Tipo de habitación<span class="icon-question"></span></p>
+					</div>
+					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 opciones">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label class="select-habitacion">
+								<span class="icon-home3 icon-casa"></span>
+								Casa entera
+								<input type="checkbox" value="">
+							</label>
+						</div>
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<label class="select-habitacion">
+								<span class="icon-enter icon-casa"></span>
+								Habitación privada
+								<input type="checkbox" value="">
+							</label>
+						</div>
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">						
+							<label class="select-habitacion">
+								<span class="icon-office icon-casa"></span>
+								Habitación compartida
+								<input type="checkbox" value="">
+							</label>
+						</div>				
+					</div>
+				</div>
+				<div class="row fecha">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						<p class="categorias">Rango de precios</p>
+					</div>
+					<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 opciones">
+						<img class="rango" src="src/img/rangoprecio.png">
+					</div>
+				</div>
+				<div class="row fecha">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						<p class="categorias"><span class="icon-power"></span> Reserva inmediata</p>
+					</div>
+					<div class="col-xs-7 col-sm-7 col-md-7 col-lg-7 opciones">
+						<p class="p-reserva">Anuncios que no requieren que el anfitrión acepte la solicitud.</p>		
+					</div>
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 opciones on-off">
+						<input type="checkbox" checked data-toggle="toggle">		
+					</div>
+				</div>
+				<!-- Comienzo Advanced Filter Jose  -->
+				<section class="padding-section">
+					<div class="row">				
+						<div class="row linea-borde">
+							<div class="col-md-2">
+								<button id="mostrar" class="btn btn-default">Filtros</button>
+							</div>
+							<div class="col-md-9">
+								<span><strong>Sólo hay un 14% de alojamientos disponibles para esta fecha</strong></span>
+								<div class="row">
+									<div class="col-md-8">
+										<span>Te recomendamos que reserves un alojamiento lo antes posible.</span>
+										<span><i class="fa fa-calendar" aria-hidden="true"></i></span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<section id="mostrar-filtros">
+						<div class="row">			
+							<div class="row linea-borde">
+								<div class="col-md-2">
+									Tamaño
+								</div>
+								<div class="col-md-10">
+									<div class="col-md-3">
+										<select class="form-control">
+											<option>Habitaciones</option>
+											<option>1 Habitación</option>
+											<option>2 Habitaciones</option>
+											<option>3 Habitaciones</option>
+											<option>4 Habitaciones</option>
+										</select>
+									</div>
+									<div class="col-md-3">
+										<select class="form-control">
+											<option>Baños</option>
+											<option>1 Baño</option>
+											<option>2 Baños</option>
+											<option>3 Baños</option>
+											<option>4 Baños</option>
+										</select>
+									</div>
+									<div class="col-md-3">
+										<select class="form-control">
+											<option>Camas</option>
+											<option>1 Cama</option>
+											<option>2 Camas</option>
+											<option>3 Camas</option>
+											<option>4 Camas</option>
+										</select>
+									</div>
+								</div>					
+							</div>
+						</div>
+						<div class="row">
+							<div class="row linea-borde">
+								<div class="col-md-2">
+									Opciones
+								</div>
+								<div class="col-md-4">
+									<i class="fa fa-thumb-tack" aria-hidden="true"></i> Superhost
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" value="">
+											Quédate en casa de anfitriones excepcionales.
+											<p class="opciones-masinfo">Más información</p>
+										</label>
+									</div>
+								</div>
+							</div>	
+						</div>
+						<div class="row">
+							<div class="row linea-borde">
+								<div class="col-md-2">
+									Servicios
+								</div>
+								<div class="col-md-10">
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>Internet inalámbrico</span>
+												<span>(wifi)</span>
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>Tv</span>
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>Cocina</span>
+
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<span class="caret"></span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>	
+						</div>
+						<div class="row">
+							<div class="row linea-borde">
+								<div class="col-md-2">
+									Servicios
+								</div>
+								<div class="col-md-10">
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>Edificio con ascensor</span>
+
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>Gimnasio</span>
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>Parking gratuito incluído</span>
+
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+
+												<span class="caret"></span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>		
+						</div>
+						<div class="row">
+							<div class="row linea-borde">
+								<div class="col-md-2">
+									Normas de la casa
+								</div>
+								<div class="col-md-10">
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>Admite mascotas</span>
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>Apto para eventos</span>
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>Apto para fumadores</span>
+
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<span class="caret"></span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>	
+						</div>
+						<div class="row">			
+							<div class="row linea-borde">
+								<div class="col-md-2">
+									Vecindarios
+								</div>
+								<div class="col-md-10">
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>SoMa</span>
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>Mission District</span>
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>Daly City</span>
+
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<span class="caret"></span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>	
+						</div>
+						<div class="row">			
+							<div class="row linea-borde">
+								<div class="col-md-2">
+									Idiomas del anfitrión
+								</div>
+								<div class="col-md-10">
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>Español</span>
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>English</span>
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<input type="checkbox" value="">
+												<span>Français</span>
+
+											</label>
+										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label>
+												<span class="caret"></span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>	
+						<div class="row">			
+							<div class="row">
+								<div class="col-md-offset-6 col-md-6">
+									<button class="btn btn-default boton-filtros">Cancelar</button>
+										<button id="aplicar-filtros" class="btn btn-default disabled boton-filtros btn-color">Aplicar filtros</button>						
+								</div>
+							</div>				
+						</div>
+					</section>
+			
+				</section>
+				<!-- Fin Advanced Filter Jose -->
+				<!-- Comienzo Results y navigation Pachi  -->
+				<section class="searchpage-results">
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							<div class="transparencia"><p class="text1">s/6905<span class="text2">por mes</p></span></div>
+							<img class="d1" src="src/img/depto1.jpg">
+							<img  class="circulo" src="src/img/zoom1.jpg">
+							<button type="button" class="btn-group btn-group-xs	">Nuevo</button>
+							<p class="descripcion"> <strong>Private Room with views</strong></p> <p class="descripcion2">Habitacion privada- 2 huéspedes</p>
+						</div>
+						<div class="col-xs-12 col-md-6">
+							<div class="transparencia"><p class="text1">s/9490<span class="text2">por mes</p></span></div>
+							<img class="d2" src="src/img/depto2.jpg">
+							<img  class="circulo" src="src/img/zoom2.jpg">
+							<button type="button" class="btn-group btn-group-xs	">Nuevo</button>
+							<p class="descripcion"> <strong>Calmin oasis with views</strong></p> <p class="descripcion2">Habitacion privada- 2 huéspedes</p>
+						</div>
+					</div>		
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							<div class="transparencia"><p class="text1">s/11259<span class="text2">por mes</p></span></div>
+							<img class="d3" src="src/img/depto3.jpg">
+							<img  class="circulo" src="src/img/zoom3.jpg">
+							<button type="button" class="btn-group btn-group-xs	">Nuevo</button>
+							<p class="descripcion"> <strong>Private Room with views</strong></p> <p class="descripcion2">Habitacion privada- 2 huéspedes</p>
+						</div>
+						<div class="col-xs-12 col-md-6">
+							<div class="transparencia"><p class="text1">s/11709<span class="text2">por mes</p></span></div>
+							<img class="d4" src="src/img/depto4.jpg">
+							<img  class="circulo" src="src/img/zoom4.jpg">
+							<button type="button" class="btn-group btn-group-xs	">Nuevo</button>
+							<p class="descripcion"> <strong>Private Room with views</strong></p> <p class="descripcion2">Habitacion privada- 2 huéspedes</p>
+						</div>
+					</div>
+					<div class="row">
+					<div class="col-xs-12 col-md-12">
+						<p class="busqueda"><strong>1-18 de Más de 300 alquileres</strong></p>
+						<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+							<div class="btn-group" role="group" aria-label="First group">
+	    					  	<button type="button" class="btn btn-secondary">1</button>
+	   						  	<button type="button" class="btn btn-secondary">2</button>
+	                          	<button type="button" class="btn btn-secondary">3</button>
+	 						</div>
+						  	<div class="btn-group" role="group" aria-label="...">...</div>
+	  						<div class="btn-group" role="group" aria-label="Second group">
+	   							<button type="button" class="btn btn-secondary">5</button>
+	  						</div>
+	  					</div>
+					</div>	
+					<hr>	
+					<p class="piepag">Chile > Santiago > Indepencia</p>
+				</section>
+				<!-- Fin Results Pachi  -->	
+			</div>
+			<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">  
+				<!--<div id='ubicacion'></div>
+				<script type="text/javascript">
+					if (navigator.geolocation) {
+						navigator.geolocation.getCurrentPosition(mostrarUbicacion);
+					} else {
+						alert("¡Error! Este navegador no soporta la Geolocalización.");
+					}
+					function mostrarUbicacion(position) {
+						var times = position.timestamp;
+						var latitud = position.coords.latitude;
+						var longitud = position.coords.longitude;
+						var altitud = position.coords.altitude; 
+						var exactitud = position.coords.accuracy; 
+						var div = document.getElementById("ubicacion");
+						function refrescarUbicacion() { 
+							navigator.geolocation.watchPosition(mostrarUbicacion);} 
+				</script>
+				<div id="demo"></div>
+				<div id="mapholder"></div>
+				<script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+				<script type="text/javascript">
+					var x=document.getElementById("demo");
+					function cargarmap(){
+						navigator.geolocation.getCurrentPosition(showPosition,showError);
+						function showPosition(position){
+							lat=position.coords.latitude;
+							lon=position.coords.longitude;
+							latlon=new google.maps.LatLng(lat, lon)
+							mapholder=document.getElementById('mapholder')
+							mapholder.style.height='100vh';
+							mapholder.style.width='500px';
+							var myOptions={
+								center:latlon,zoom:15,
+								mapTypeId:google.maps.MapTypeId.ROADMAP,
+								mapTypeControl:false,
+								navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL
+								}
+							};
+							var map=new google.maps.Map(document.getElementById("mapholder"),myOptions);
+							var marker=new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
+						}
+						function showError(error){
+							switch(error.code){
+								case error.PERMISSION_DENIED:
+								x.innerHTML="Denegada la peticion de Geolocalización en el navegador."
+								break;
+								case error.POSITION_UNAVAILABLE:
+								x.innerHTML="La información de la localización no esta disponible."
+								break;
+								case error.TIMEOUT:
+								x.innerHTML="El tiempo de petición ha expirado."
+								break;
+								case error.UNKNOWN_ERROR:
+								x.innerHTML="Ha ocurrido un error desconocido."
+								break;
+							}
+						}}
+						cargarmap();
+				</script>-->
+			</div>
+		</div>
+		<!-- Fin Search Tam  -->
+	</div>
+	<script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+	<script type="text/javascript" src="dist/js/script.min.js"></script>
+</body>
+</html>
